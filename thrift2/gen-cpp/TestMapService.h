@@ -4,8 +4,8 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-#ifndef testMapService_H
-#define testMapService_H
+#ifndef TestMapService_H
+#define TestMapService_H
 
 #include <thrift/TDispatchProcessor.h>
 #include <thrift/async/TConcurrentClientSyncInfo.h>
@@ -18,69 +18,69 @@
   #pragma warning (disable : 4250 ) //inheriting methods via dominance 
 #endif
 
-class testMapServiceIf {
+class TestMapServiceIf {
  public:
-  virtual ~testMapServiceIf() {}
+  virtual ~TestMapServiceIf() {}
   virtual void pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData) = 0;
 };
 
-class testMapServiceIfFactory {
+class TestMapServiceIfFactory {
  public:
-  typedef testMapServiceIf Handler;
+  typedef TestMapServiceIf Handler;
 
-  virtual ~testMapServiceIfFactory() {}
+  virtual ~TestMapServiceIfFactory() {}
 
-  virtual testMapServiceIf* getHandler(const ::apache::thrift::TConnectionInfo& connInfo) = 0;
-  virtual void releaseHandler(testMapServiceIf* /* handler */) = 0;
+  virtual TestMapServiceIf* getHandler(const ::apache::thrift::TConnectionInfo& connInfo) = 0;
+  virtual void releaseHandler(TestMapServiceIf* /* handler */) = 0;
 };
 
-class testMapServiceIfSingletonFactory : virtual public testMapServiceIfFactory {
+class TestMapServiceIfSingletonFactory : virtual public TestMapServiceIfFactory {
  public:
-  testMapServiceIfSingletonFactory(const ::apache::thrift::stdcxx::shared_ptr<testMapServiceIf>& iface) : iface_(iface) {}
-  virtual ~testMapServiceIfSingletonFactory() {}
+  TestMapServiceIfSingletonFactory(const ::apache::thrift::stdcxx::shared_ptr<TestMapServiceIf>& iface) : iface_(iface) {}
+  virtual ~TestMapServiceIfSingletonFactory() {}
 
-  virtual testMapServiceIf* getHandler(const ::apache::thrift::TConnectionInfo&) {
+  virtual TestMapServiceIf* getHandler(const ::apache::thrift::TConnectionInfo&) {
     return iface_.get();
   }
-  virtual void releaseHandler(testMapServiceIf* /* handler */) {}
+  virtual void releaseHandler(TestMapServiceIf* /* handler */) {}
 
  protected:
-  ::apache::thrift::stdcxx::shared_ptr<testMapServiceIf> iface_;
+  ::apache::thrift::stdcxx::shared_ptr<TestMapServiceIf> iface_;
 };
 
-class testMapServiceNull : virtual public testMapServiceIf {
+class TestMapServiceNull : virtual public TestMapServiceIf {
  public:
-  virtual ~testMapServiceNull() {}
+  virtual ~TestMapServiceNull() {}
   void pushData(const int64_t /* reqId */, const std::map<int64_t, std::string> & /* pushData */) {
     return;
   }
 };
 
-typedef struct _testMapService_pushData_args__isset {
-  _testMapService_pushData_args__isset() : reqId(false), pushData(false) {}
+typedef struct _TestMapService_pushData_args__isset {
+  _TestMapService_pushData_args__isset() : reqId(false), pushData(false) {}
   bool reqId :1;
   bool pushData :1;
-} _testMapService_pushData_args__isset;
+} _TestMapService_pushData_args__isset;
 
-class testMapService_pushData_args {
+class TestMapService_pushData_args {
  public:
 
-  testMapService_pushData_args(const testMapService_pushData_args&);
-  testMapService_pushData_args& operator=(const testMapService_pushData_args&);
-  testMapService_pushData_args() : reqId(0) {
+  TestMapService_pushData_args(const TestMapService_pushData_args&);
+  TestMapService_pushData_args& operator=(const TestMapService_pushData_args&);
+  TestMapService_pushData_args() : reqId(0) {
   }
 
-  virtual ~testMapService_pushData_args() throw();
+  virtual ~TestMapService_pushData_args() throw();
   int64_t reqId;
   std::map<int64_t, std::string>  pushData;
 
-  _testMapService_pushData_args__isset __isset;
+  _TestMapService_pushData_args__isset __isset;
 
   void __set_reqId(const int64_t val);
 
   void __set_pushData(const std::map<int64_t, std::string> & val);
 
-  bool operator == (const testMapService_pushData_args & rhs) const
+  bool operator == (const TestMapService_pushData_args & rhs) const
   {
     if (!(reqId == rhs.reqId))
       return false;
@@ -88,11 +88,11 @@ class testMapService_pushData_args {
       return false;
     return true;
   }
-  bool operator != (const testMapService_pushData_args &rhs) const {
+  bool operator != (const TestMapService_pushData_args &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const testMapService_pushData_args & ) const;
+  bool operator < (const TestMapService_pushData_args & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -100,11 +100,11 @@ class testMapService_pushData_args {
 };
 
 
-class testMapService_pushData_pargs {
+class TestMapService_pushData_pargs {
  public:
 
 
-  virtual ~testMapService_pushData_pargs() throw();
+  virtual ~TestMapService_pushData_pargs() throw();
   const int64_t* reqId;
   const std::map<int64_t, std::string> * pushData;
 
@@ -113,25 +113,25 @@ class testMapService_pushData_pargs {
 };
 
 
-class testMapService_pushData_result {
+class TestMapService_pushData_result {
  public:
 
-  testMapService_pushData_result(const testMapService_pushData_result&);
-  testMapService_pushData_result& operator=(const testMapService_pushData_result&);
-  testMapService_pushData_result() {
+  TestMapService_pushData_result(const TestMapService_pushData_result&);
+  TestMapService_pushData_result& operator=(const TestMapService_pushData_result&);
+  TestMapService_pushData_result() {
   }
 
-  virtual ~testMapService_pushData_result() throw();
+  virtual ~TestMapService_pushData_result() throw();
 
-  bool operator == (const testMapService_pushData_result & /* rhs */) const
+  bool operator == (const TestMapService_pushData_result & /* rhs */) const
   {
     return true;
   }
-  bool operator != (const testMapService_pushData_result &rhs) const {
+  bool operator != (const TestMapService_pushData_result &rhs) const {
     return !(*this == rhs);
   }
 
-  bool operator < (const testMapService_pushData_result & ) const;
+  bool operator < (const TestMapService_pushData_result & ) const;
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
   uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const;
@@ -139,22 +139,22 @@ class testMapService_pushData_result {
 };
 
 
-class testMapService_pushData_presult {
+class TestMapService_pushData_presult {
  public:
 
 
-  virtual ~testMapService_pushData_presult() throw();
+  virtual ~TestMapService_pushData_presult() throw();
 
   uint32_t read(::apache::thrift::protocol::TProtocol* iprot);
 
 };
 
-class testMapServiceClient : virtual public testMapServiceIf {
+class TestMapServiceClient : virtual public TestMapServiceIf {
  public:
-  testMapServiceClient(apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) {
+  TestMapServiceClient(apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) {
     setProtocol(prot);
   }
-  testMapServiceClient(apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> iprot, apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> oprot) {
+  TestMapServiceClient(apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> iprot, apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> oprot) {
     setProtocol(iprot,oprot);
   }
  private:
@@ -184,44 +184,44 @@ class testMapServiceClient : virtual public testMapServiceIf {
   ::apache::thrift::protocol::TProtocol* oprot_;
 };
 
-class testMapServiceProcessor : public ::apache::thrift::TDispatchProcessor {
+class TestMapServiceProcessor : public ::apache::thrift::TDispatchProcessor {
  protected:
-  ::apache::thrift::stdcxx::shared_ptr<testMapServiceIf> iface_;
+  ::apache::thrift::stdcxx::shared_ptr<TestMapServiceIf> iface_;
   virtual bool dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext);
  private:
-  typedef  void (testMapServiceProcessor::*ProcessFunction)(int32_t, ::apache::thrift::protocol::TProtocol*, ::apache::thrift::protocol::TProtocol*, void*);
+  typedef  void (TestMapServiceProcessor::*ProcessFunction)(int32_t, ::apache::thrift::protocol::TProtocol*, ::apache::thrift::protocol::TProtocol*, void*);
   typedef std::map<std::string, ProcessFunction> ProcessMap;
   ProcessMap processMap_;
   void process_pushData(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext);
  public:
-  testMapServiceProcessor(::apache::thrift::stdcxx::shared_ptr<testMapServiceIf> iface) :
+  TestMapServiceProcessor(::apache::thrift::stdcxx::shared_ptr<TestMapServiceIf> iface) :
     iface_(iface) {
-    processMap_["pushData"] = &testMapServiceProcessor::process_pushData;
+    processMap_["pushData"] = &TestMapServiceProcessor::process_pushData;
   }
 
-  virtual ~testMapServiceProcessor() {}
+  virtual ~TestMapServiceProcessor() {}
 };
 
-class testMapServiceProcessorFactory : public ::apache::thrift::TProcessorFactory {
+class TestMapServiceProcessorFactory : public ::apache::thrift::TProcessorFactory {
  public:
-  testMapServiceProcessorFactory(const ::apache::thrift::stdcxx::shared_ptr< testMapServiceIfFactory >& handlerFactory) :
+  TestMapServiceProcessorFactory(const ::apache::thrift::stdcxx::shared_ptr< TestMapServiceIfFactory >& handlerFactory) :
       handlerFactory_(handlerFactory) {}
 
   ::apache::thrift::stdcxx::shared_ptr< ::apache::thrift::TProcessor > getProcessor(const ::apache::thrift::TConnectionInfo& connInfo);
 
  protected:
-  ::apache::thrift::stdcxx::shared_ptr< testMapServiceIfFactory > handlerFactory_;
+  ::apache::thrift::stdcxx::shared_ptr< TestMapServiceIfFactory > handlerFactory_;
 };
 
-class testMapServiceMultiface : virtual public testMapServiceIf {
+class TestMapServiceMultiface : virtual public TestMapServiceIf {
  public:
-  testMapServiceMultiface(std::vector<apache::thrift::stdcxx::shared_ptr<testMapServiceIf> >& ifaces) : ifaces_(ifaces) {
+  TestMapServiceMultiface(std::vector<apache::thrift::stdcxx::shared_ptr<TestMapServiceIf> >& ifaces) : ifaces_(ifaces) {
   }
-  virtual ~testMapServiceMultiface() {}
+  virtual ~TestMapServiceMultiface() {}
  protected:
-  std::vector<apache::thrift::stdcxx::shared_ptr<testMapServiceIf> > ifaces_;
-  testMapServiceMultiface() {}
-  void add(::apache::thrift::stdcxx::shared_ptr<testMapServiceIf> iface) {
+  std::vector<apache::thrift::stdcxx::shared_ptr<TestMapServiceIf> > ifaces_;
+  TestMapServiceMultiface() {}
+  void add(::apache::thrift::stdcxx::shared_ptr<TestMapServiceIf> iface) {
     ifaces_.push_back(iface);
   }
  public:
@@ -239,12 +239,12 @@ class testMapServiceMultiface : virtual public testMapServiceIf {
 // The 'concurrent' client is a thread safe client that correctly handles
 // out of order responses.  It is slower than the regular client, so should
 // only be used when you need to share a connection among multiple threads
-class testMapServiceConcurrentClient : virtual public testMapServiceIf {
+class TestMapServiceConcurrentClient : virtual public TestMapServiceIf {
  public:
-  testMapServiceConcurrentClient(apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) {
+  TestMapServiceConcurrentClient(apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> prot) {
     setProtocol(prot);
   }
-  testMapServiceConcurrentClient(apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> iprot, apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> oprot) {
+  TestMapServiceConcurrentClient(apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> iprot, apache::thrift::stdcxx::shared_ptr< ::apache::thrift::protocol::TProtocol> oprot) {
     setProtocol(iprot,oprot);
   }
  private:

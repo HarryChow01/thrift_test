@@ -4,16 +4,16 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-#include "testMapService.h"
+#include "TestMapService.h"
 
 
 
 
-testMapService_pushData_args::~testMapService_pushData_args() throw() {
+TestMapService_pushData_args::~TestMapService_pushData_args() throw() {
 }
 
 
-uint32_t testMapService_pushData_args::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t TestMapService_pushData_args::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -77,10 +77,10 @@ uint32_t testMapService_pushData_args::read(::apache::thrift::protocol::TProtoco
   return xfer;
 }
 
-uint32_t testMapService_pushData_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t TestMapService_pushData_args::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("testMapService_pushData_args");
+  xfer += oprot->writeStructBegin("TestMapService_pushData_args");
 
   xfer += oprot->writeFieldBegin("reqId", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64(this->reqId);
@@ -105,14 +105,14 @@ uint32_t testMapService_pushData_args::write(::apache::thrift::protocol::TProtoc
 }
 
 
-testMapService_pushData_pargs::~testMapService_pushData_pargs() throw() {
+TestMapService_pushData_pargs::~TestMapService_pushData_pargs() throw() {
 }
 
 
-uint32_t testMapService_pushData_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t TestMapService_pushData_pargs::write(::apache::thrift::protocol::TProtocol* oprot) const {
   uint32_t xfer = 0;
   ::apache::thrift::protocol::TOutputRecursionTracker tracker(*oprot);
-  xfer += oprot->writeStructBegin("testMapService_pushData_pargs");
+  xfer += oprot->writeStructBegin("TestMapService_pushData_pargs");
 
   xfer += oprot->writeFieldBegin("reqId", ::apache::thrift::protocol::T_I64, 1);
   xfer += oprot->writeI64((*(this->reqId)));
@@ -137,11 +137,11 @@ uint32_t testMapService_pushData_pargs::write(::apache::thrift::protocol::TProto
 }
 
 
-testMapService_pushData_result::~testMapService_pushData_result() throw() {
+TestMapService_pushData_result::~TestMapService_pushData_result() throw() {
 }
 
 
-uint32_t testMapService_pushData_result::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t TestMapService_pushData_result::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -169,11 +169,11 @@ uint32_t testMapService_pushData_result::read(::apache::thrift::protocol::TProto
   return xfer;
 }
 
-uint32_t testMapService_pushData_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
+uint32_t TestMapService_pushData_result::write(::apache::thrift::protocol::TProtocol* oprot) const {
 
   uint32_t xfer = 0;
 
-  xfer += oprot->writeStructBegin("testMapService_pushData_result");
+  xfer += oprot->writeStructBegin("TestMapService_pushData_result");
 
   xfer += oprot->writeFieldStop();
   xfer += oprot->writeStructEnd();
@@ -181,11 +181,11 @@ uint32_t testMapService_pushData_result::write(::apache::thrift::protocol::TProt
 }
 
 
-testMapService_pushData_presult::~testMapService_pushData_presult() throw() {
+TestMapService_pushData_presult::~TestMapService_pushData_presult() throw() {
 }
 
 
-uint32_t testMapService_pushData_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
+uint32_t TestMapService_pushData_presult::read(::apache::thrift::protocol::TProtocol* iprot) {
 
   ::apache::thrift::protocol::TInputRecursionTracker tracker(*iprot);
   uint32_t xfer = 0;
@@ -213,18 +213,18 @@ uint32_t testMapService_pushData_presult::read(::apache::thrift::protocol::TProt
   return xfer;
 }
 
-void testMapServiceClient::pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData)
+void TestMapServiceClient::pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData)
 {
   send_pushData(reqId, pushData);
   recv_pushData();
 }
 
-void testMapServiceClient::send_pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData)
+void TestMapServiceClient::send_pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData)
 {
   int32_t cseqid = 0;
   oprot_->writeMessageBegin("pushData", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  testMapService_pushData_pargs args;
+  TestMapService_pushData_pargs args;
   args.reqId = &reqId;
   args.pushData = &pushData;
   args.write(oprot_);
@@ -234,7 +234,7 @@ void testMapServiceClient::send_pushData(const int64_t reqId, const std::map<int
   oprot_->getTransport()->flush();
 }
 
-void testMapServiceClient::recv_pushData()
+void TestMapServiceClient::recv_pushData()
 {
 
   int32_t rseqid = 0;
@@ -259,7 +259,7 @@ void testMapServiceClient::recv_pushData()
     iprot_->readMessageEnd();
     iprot_->getTransport()->readEnd();
   }
-  testMapService_pushData_presult result;
+  TestMapService_pushData_presult result;
   result.read(iprot_);
   iprot_->readMessageEnd();
   iprot_->getTransport()->readEnd();
@@ -267,7 +267,7 @@ void testMapServiceClient::recv_pushData()
   return;
 }
 
-bool testMapServiceProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
+bool TestMapServiceProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
   ProcessMap::iterator pfn;
   pfn = processMap_.find(fname);
   if (pfn == processMap_.end()) {
@@ -286,33 +286,33 @@ bool testMapServiceProcessor::dispatchCall(::apache::thrift::protocol::TProtocol
   return true;
 }
 
-void testMapServiceProcessor::process_pushData(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
+void TestMapServiceProcessor::process_pushData(int32_t seqid, ::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, void* callContext)
 {
   void* ctx = NULL;
   if (this->eventHandler_.get() != NULL) {
-    ctx = this->eventHandler_->getContext("testMapService.pushData", callContext);
+    ctx = this->eventHandler_->getContext("TestMapService.pushData", callContext);
   }
-  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "testMapService.pushData");
+  ::apache::thrift::TProcessorContextFreer freer(this->eventHandler_.get(), ctx, "TestMapService.pushData");
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preRead(ctx, "testMapService.pushData");
+    this->eventHandler_->preRead(ctx, "TestMapService.pushData");
   }
 
-  testMapService_pushData_args args;
+  TestMapService_pushData_args args;
   args.read(iprot);
   iprot->readMessageEnd();
   uint32_t bytes = iprot->getTransport()->readEnd();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postRead(ctx, "testMapService.pushData", bytes);
+    this->eventHandler_->postRead(ctx, "TestMapService.pushData", bytes);
   }
 
-  testMapService_pushData_result result;
+  TestMapService_pushData_result result;
   try {
     iface_->pushData(args.reqId, args.pushData);
   } catch (const std::exception& e) {
     if (this->eventHandler_.get() != NULL) {
-      this->eventHandler_->handlerError(ctx, "testMapService.pushData");
+      this->eventHandler_->handlerError(ctx, "TestMapService.pushData");
     }
 
     ::apache::thrift::TApplicationException x(e.what());
@@ -325,7 +325,7 @@ void testMapServiceProcessor::process_pushData(int32_t seqid, ::apache::thrift::
   }
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->preWrite(ctx, "testMapService.pushData");
+    this->eventHandler_->preWrite(ctx, "TestMapService.pushData");
   }
 
   oprot->writeMessageBegin("pushData", ::apache::thrift::protocol::T_REPLY, seqid);
@@ -335,30 +335,30 @@ void testMapServiceProcessor::process_pushData(int32_t seqid, ::apache::thrift::
   oprot->getTransport()->flush();
 
   if (this->eventHandler_.get() != NULL) {
-    this->eventHandler_->postWrite(ctx, "testMapService.pushData", bytes);
+    this->eventHandler_->postWrite(ctx, "TestMapService.pushData", bytes);
   }
 }
 
-::apache::thrift::stdcxx::shared_ptr< ::apache::thrift::TProcessor > testMapServiceProcessorFactory::getProcessor(const ::apache::thrift::TConnectionInfo& connInfo) {
-  ::apache::thrift::ReleaseHandler< testMapServiceIfFactory > cleanup(handlerFactory_);
-  ::apache::thrift::stdcxx::shared_ptr< testMapServiceIf > handler(handlerFactory_->getHandler(connInfo), cleanup);
-  ::apache::thrift::stdcxx::shared_ptr< ::apache::thrift::TProcessor > processor(new testMapServiceProcessor(handler));
+::apache::thrift::stdcxx::shared_ptr< ::apache::thrift::TProcessor > TestMapServiceProcessorFactory::getProcessor(const ::apache::thrift::TConnectionInfo& connInfo) {
+  ::apache::thrift::ReleaseHandler< TestMapServiceIfFactory > cleanup(handlerFactory_);
+  ::apache::thrift::stdcxx::shared_ptr< TestMapServiceIf > handler(handlerFactory_->getHandler(connInfo), cleanup);
+  ::apache::thrift::stdcxx::shared_ptr< ::apache::thrift::TProcessor > processor(new TestMapServiceProcessor(handler));
   return processor;
 }
 
-void testMapServiceConcurrentClient::pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData)
+void TestMapServiceConcurrentClient::pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData)
 {
   int32_t seqid = send_pushData(reqId, pushData);
   recv_pushData(seqid);
 }
 
-int32_t testMapServiceConcurrentClient::send_pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData)
+int32_t TestMapServiceConcurrentClient::send_pushData(const int64_t reqId, const std::map<int64_t, std::string> & pushData)
 {
   int32_t cseqid = this->sync_.generateSeqId();
   ::apache::thrift::async::TConcurrentSendSentry sentry(&this->sync_);
   oprot_->writeMessageBegin("pushData", ::apache::thrift::protocol::T_CALL, cseqid);
 
-  testMapService_pushData_pargs args;
+  TestMapService_pushData_pargs args;
   args.reqId = &reqId;
   args.pushData = &pushData;
   args.write(oprot_);
@@ -371,7 +371,7 @@ int32_t testMapServiceConcurrentClient::send_pushData(const int64_t reqId, const
   return cseqid;
 }
 
-void testMapServiceConcurrentClient::recv_pushData(const int32_t seqid)
+void TestMapServiceConcurrentClient::recv_pushData(const int32_t seqid)
 {
 
   int32_t rseqid = 0;
@@ -409,7 +409,7 @@ void testMapServiceConcurrentClient::recv_pushData(const int32_t seqid)
         using ::apache::thrift::protocol::TProtocolException;
         throw TProtocolException(TProtocolException::INVALID_DATA);
       }
-      testMapService_pushData_presult result;
+      TestMapService_pushData_presult result;
       result.read(iprot_);
       iprot_->readMessageEnd();
       iprot_->getTransport()->readEnd();
